@@ -1,0 +1,28 @@
+name: LuminaCore CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e . pytest
+      - run: pytest -q
+      - run: python -m luminacore.cli --scenario scenarios/edge_proprioception_small.json --out results/ci.json
+      - run: python - <<'PY'
+import json
+with open('results/ci.json', encoding='utf-8') as f:
+    results = json.load(f)
+assert len(results) == 2
+assert {r['backend'] for r in results} == {'electronic', 'photonic-model'}
+assert all(r['energy_j_per_sample'] > 0 for r in results)
+assert all(r['latency_ms_per_sample'] > 0 for r in results)
+print('benchmark smoke test passed')
+PY
