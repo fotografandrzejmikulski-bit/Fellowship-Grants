@@ -4,5 +4,7 @@
   "output_dim": 16,
   "layers": 2,
   "samples": 512,
-  "accuracy_target": 0.995
+  "accuracy_target": 0.995,
+  "optical_path_cm": 0.2,
+  "optical_channels": 8
 }
