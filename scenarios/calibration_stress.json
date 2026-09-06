@@ -1,0 +1,8 @@
+{
+  "name": "calibration_stress",
+  "input_dim": 64,
+  "output_dim": 32,
+  "layers": 3,
+  "samples": 512,
+  "accuracy_target": 0.98
+}
