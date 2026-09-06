@@ -1,0 +1,8 @@
+{
+  "name": "edge_proprioception_stress",
+  "input_dim": 128,
+  "output_dim": 64,
+  "layers": 4,
+  "samples": 1024,
+  "accuracy_target": 0.99
+}
