@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "luminacore-harness"
+version = "0.1.0"
+description = "Evidence-first execution harness for the LuminaCore photonic edge-AI research program"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26,<3",
+]
+
+[project.scripts]
+luminacore-benchmark = "luminacore.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
