@@ -1,0 +1,8 @@
+{
+  "name": "edge_proprioception_small",
+  "input_dim": 32,
+  "output_dim": 16,
+  "layers": 2,
+  "samples": 512,
+  "accuracy_target": 0.995
+}
